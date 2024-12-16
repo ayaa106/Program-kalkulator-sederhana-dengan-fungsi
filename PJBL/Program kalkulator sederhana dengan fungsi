@@ -1,0 +1,89 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main() {
+    char yaya[2];  // Untuk menyimpan input 'y' atau 'n' sebagai string
+    double ang1, ang2, hasil;
+    int masukkan;
+
+    // Pilihan menu
+    masukkan = 0;
+
+    // Looping menu utama kalkulator
+    while (masukkan != 5) {
+        printf("Kalkulator sederhana dengan fungsi ======================\n");
+        printf("1. Penjumlahan\n");
+        printf("2. Pengurangan\n");
+        printf("3. Perkalian\n");
+        printf("4. Pembagian\n");
+        printf("5. Keluar\n");
+        printf("Masukkan pilihan anda: ");
+        scanf("%d", &masukkan);
+
+        if (masukkan == 1) { // Hanya bisa menampilkan dua angka dibelakang koma
+            printf("Penjumlahan\n");
+            printf("Masukkan angka pertama: ");
+            scanf("%lf", &ang1);
+            printf("Masukkan angka kedua: ");
+            scanf("%lf", &ang2);
+            hasil = ang1 + ang2;
+            printf("Hasil penjumlahan: %.4f\n", hasil);
+        } 
+        else if (masukkan == 2) {
+            printf("Pengurangan\n");
+            printf("Masukkan angka pertama: ");
+            scanf("%lf", &ang1);
+            printf("Masukkan angka kedua: ");
+            scanf("%lf", &ang2);
+            hasil = ang1 - ang2;
+            printf("Hasil pengurangan: %.4f\n", hasil);
+        } 
+        else if (masukkan == 3) {
+            printf("Perkalian\n");
+            printf("Masukkan angka pertama: ");
+            scanf("%lf", &ang1);
+            printf("Masukkan angka kedua: ");
+            scanf("%lf", &ang2);
+            hasil = ang1 * ang2;
+            printf("Hasil perkalian: %.4f\n", hasil);
+        } 
+        else if (masukkan == 4) {
+            printf("Pembagian\n");
+            printf("Masukkan angka pertama: ");
+            scanf("%lf", &ang1);
+            printf("Masukkan angka kedua: ");
+            scanf("%lf", &ang2);
+
+            // Pembagian dengan nol
+            if (ang2 != 0) {
+                hasil = ang1 / ang2;
+                printf("Hasil pembagian: %.4f\n", hasil);
+            } else {
+                printf("Error! Pembagian dengan nol.\n");
+            }
+        } 
+        else if (masukkan == 5) {
+            printf("Terima kasih telah menggunakan kalkulator!\n");
+            break;  // Keluar dari loop jika pengguna memilih keluar
+        } 
+        else {
+            printf("Pilihan tidak tersedia. Apakah anda ingin memilih yang lain? (y/n): ");
+            scanf("%s", yaya);
+            if (strcmp(yaya, "y") != 0) {
+                masukkan = 5;  // Keluar dari program jika tidak ingin melanjutkan
+            }
+        }
+
+        // Tanyakan apakah ingin melanjutkan operasi lagi
+        if (masukkan != 5) {
+            printf("Ingin melanjutkan operasi lagi? (y/n): ");
+            scanf("%s", yaya);
+            if (strcmp(yaya, "y") != 0) {
+                masukkan = 5;  // Keluar dari loop jika tidak ingin melanjutkan
+            }
+        }
+    }
+
+    return 0;
+}
